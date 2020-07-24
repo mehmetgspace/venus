@@ -9,13 +9,20 @@ module.exports = function(grunt) {
           './app/assets/styles/styles.css': './app/assets/styles/styles.scss'
         }
       }
+    },
+    watch: {
+      css: {
+        files: ['./app/assets/styles/**/*.scss'],
+        tasks: ['sass']
+      }
     }
   });
 
   // Load the plugins
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default tasks
-  grunt.registerTask('default', ['sass']);
+  grunt.registerTask('default', ['watch']);
 
 }
